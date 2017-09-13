@@ -22,6 +22,4 @@ public class RightTriangle {
         }
         return triangleLine;
     }
-
-
 }
