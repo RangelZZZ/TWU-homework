@@ -9,7 +9,7 @@ public class PrimeFactors {
         if(number == 1){
             return factors;
         }
-        
+
         for(int i = 2;i <=number; i++){
             if(number % i == 0){
                 factors.add(i);
