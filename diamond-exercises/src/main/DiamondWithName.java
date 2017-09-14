@@ -1,17 +1,15 @@
 package main;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-public class Diamond {
-
-    public String printDiamond(int number) {
+public class DiamondWithName {
+    public String printDiamondWithName(int number) {
         StringBuffer Diamond = new StringBuffer("");
         List<StringBuffer> tempDiamond = new ArrayList<StringBuffer>();
 
-        for (int i = 0; i < number; i++) {
+        for (int i = 0; i < number-1; i++) {
             StringBuffer DiamondLine = getWhiteSpace(i, number)
                     .append(getEveryTriangleLine(i))
                     .append(getWhiteSpace(i, number));
@@ -20,9 +18,10 @@ public class Diamond {
             Diamond.append(DiamondLine);
         }
 
-        tempDiamond.remove(number - 1);
         Collections.reverse(tempDiamond);
+        Diamond.append("Bill\n");
         tempDiamond.stream().forEach(s -> Diamond.append(s));
+
         return Diamond.toString().substring(0, Diamond.length() - 1);
     }
 
