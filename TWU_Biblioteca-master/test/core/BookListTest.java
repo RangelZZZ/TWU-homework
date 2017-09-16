@@ -40,4 +40,19 @@ public class BookListTest {
         Book book = bookList.getBookList().stream().filter(s -> (!s.getAvailable() && s.getBookName().equals("book4"))).findFirst().orElse(null);
         assertNull(book);
     }
+
+
+    @Test
+    public void should_return_book_when_the_book_is_exist() throws Exception {
+        bookList.returnBook("book2");
+        Book book = bookList.getBookList().stream().filter(s -> (s.getAvailable() && s.getBookName().equals("book2"))).findFirst().orElse(null);
+        assertThat(book.getAuthor(),is("author2"));
+    }
+
+    @Test
+    public void should_not_return_book_when_the_book_is_not_exist() throws Exception {
+        bookList.returnBook("book4");
+        Book book = bookList.getBookList().stream().filter(s -> (s.getAvailable() && s.getBookName().equals("book4"))).findFirst().orElse(null);
+        assertNull(book);
+    }
 }

@@ -14,14 +14,14 @@ public class BookList {
 
     public List<Book> initialBookList() {
         this.bookList.add(new Book("book1", "2001", "author1",true));
-        this.bookList.add(new Book("book2", "2002", "author2",true));
+        this.bookList.add(new Book("book2", "2002", "author2",false));
         this.bookList.add(new Book("book3", "2003", "author3",true));
 
         return this.bookList;
     }
 
     public List<Book> checkOutBook(String bookName) {
-        Book book = this.bookList.stream().filter(s -> s.getBookName().equals(bookName)).findFirst().orElse(null);
+        Book book = this.bookList.stream().filter(s -> s.getBookName().equals(bookName) && s.getAvailable()).findFirst().orElse(null);
         if(book == null){
             return null;
         }
@@ -29,6 +29,14 @@ public class BookList {
         return this.bookList;
     }
 
+    public List<Book> returnBook(String bookName){
+        Book book = this.bookList.stream().filter(s -> s.getBookName().equals(bookName) && !s.getAvailable()).findFirst().orElse(null);
+        if(book == null){
+            return null;
+        }
+        book.setAvailable(true);
+        return this.bookList;
+    }
 
 }
 
