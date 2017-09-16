@@ -13,22 +13,22 @@ public class BookList {
     }
 
     public List<Book> initialBookList() {
-        this.bookList.add(new Book("book1", "2001", "author1"));
-        this.bookList.add(new Book("book2", "2002", "author2"));
-        this.bookList.add(new Book("book3", "2003", "author3"));
+        this.bookList.add(new Book("book1", "2001", "author1",true));
+        this.bookList.add(new Book("book2", "2002", "author2",true));
+        this.bookList.add(new Book("book3", "2003", "author3",true));
 
         return this.bookList;
     }
 
-    public void setBookList(List<Book> bookList) {
-        this.bookList = bookList;
+    public List<Book> checkOutBook(String bookName) {
+        Book book = this.bookList.stream().filter(s -> s.getBookName().equals(bookName)).findFirst().orElse(null);
+        if(book == null){
+            return null;
+        }
+        book.setAvailable(false);
+        return this.bookList;
     }
 
-    @Override
-    public String toString() {
-        return "BookList{" +
-                "bookList=" + bookList +
-                '}';
-    }
+
 }
 
