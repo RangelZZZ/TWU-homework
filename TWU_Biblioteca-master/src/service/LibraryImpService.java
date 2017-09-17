@@ -6,7 +6,7 @@ import core.BookList;
 
 import java.util.List;
 
-public class LibraryServiceImpService implements LibraryService {
+public class LibraryImpService implements LibraryService {
     private BookList bookList = new BookList();
 
     @Override
