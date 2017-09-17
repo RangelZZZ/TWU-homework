@@ -15,11 +15,6 @@ public class BookListTest {
 
     private BookList bookList = new BookList();
 
-    @Before
-    public void setUp() throws Exception {
-        bookList.initialBookList();
-    }
-
     @Test
     public void should_initial_bookList_when_given_the_fake_date() throws Exception {
 

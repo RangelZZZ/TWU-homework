@@ -11,19 +11,16 @@ public class LibraryImpService implements LibraryService {
 
     @Override
     public List<Book> getBookList() {
-        bookList.initialBookList();
         return bookList.getBookList();
     }
 
     @Override
-    public List<Book> checkOutBookList(String bookName) {
-        bookList.initialBookList();
+    public List<Book> checkOutBook(String bookName) {
         return bookList.checkOutBook(bookName);
     }
 
     @Override
     public List<Book> returnBook(String bookName) {
-        bookList.initialBookList();
         return bookList.returnBook(bookName);
     }
 }

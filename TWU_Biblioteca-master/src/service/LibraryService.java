@@ -7,6 +7,6 @@ import java.util.List;
 public interface LibraryService {
 
     List<Book> getBookList();
-    List<Book> checkOutBookList(String bookName);
+    List<Book> checkOutBook(String bookName);
     List<Book> returnBook(String bookName);
 }

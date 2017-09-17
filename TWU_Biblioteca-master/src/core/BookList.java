@@ -12,12 +12,11 @@ public class BookList {
         return this.bookList;
     }
 
-    public List<Book> initialBookList() {
-        this.bookList.add(new Book("book1", "2001", "author1",true));
-        this.bookList.add(new Book("book2", "2002", "author2",false));
-        this.bookList.add(new Book("book3", "2003", "author3",true));
+    public BookList() {
+        this.bookList.add(new Book("book1", "2001", "author1", true));
+        this.bookList.add(new Book("book2", "2002", "author2", false));
+        this.bookList.add(new Book("book3", "2003", "author3", true));
 
-        return this.bookList;
     }
 
     public List<Book> checkOutBook(String bookName) {

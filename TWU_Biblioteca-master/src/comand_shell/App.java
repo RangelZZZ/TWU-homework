@@ -47,7 +47,7 @@ public class App {
 
 
     private String ReturnBook(String bookName) {
-        List<Book> bookList = libraryImpService.checkOutBookList(bookName);
+        List<Book> bookList = libraryImpService.returnBook(bookName);
         if (bookList == null) {
             return ALERT_RETURN_FAILURE;
         } else {
@@ -56,7 +56,7 @@ public class App {
     }
 
     private String checkOutBook(String bookName) {
-        List<Book> bookList = libraryImpService.checkOutBookList(bookName);
+        List<Book> bookList = libraryImpService.checkOutBook(bookName);
         if (bookList == null) {
             return ALERT_CHECKOUT_FAILURE;
         } else {
