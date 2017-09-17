@@ -6,13 +6,13 @@ import service.LibraryImpService;
 import java.util.List;
 import java.util.Scanner;
 
-import static util.Constant.WELCOME;
+import static util.Constant.*;
 
 public class App {
     private LibraryImpService libraryImpService = new LibraryImpService();
 
     public static void main(String[] args) {
-       run();
+        run();
     }
 
     private static void run() {
@@ -26,6 +26,41 @@ public class App {
     public void handleUserInput(int i) {
         if (i == 1) {
             System.out.println(new App().printBookList());
+            run();
+        } else if (i == 2) {
+            System.out.println(ALERT_CHECKOUT);
+            Scanner sc = new Scanner(System.in);
+            System.out.println(new App().checkOutBook(sc.nextLine()));
+            run();
+        } else if (i == 3) {
+            System.out.println(ALERT_RETURN);
+            Scanner sc = new Scanner(System.in);
+            System.out.println(new App().ReturnBook(sc.nextLine()));
+            run();
+        } else if (i == 4) {
+            System.exit(0);
+        }else{
+            System.out.println(ALERT_SELECT_VALID_OPTION);
+            run();
+        }
+    }
+
+
+    private String ReturnBook(String bookName) {
+        List<Book> bookList = libraryImpService.checkOutBookList(bookName);
+        if (bookList == null) {
+            return ALERT_RETURN_FAILURE;
+        } else {
+            return ALERT_RETURN_SUCCESS;
+        }
+    }
+
+    private String checkOutBook(String bookName) {
+        List<Book> bookList = libraryImpService.checkOutBookList(bookName);
+        if (bookList == null) {
+            return ALERT_CHECKOUT_FAILURE;
+        } else {
+            return ALERT_CHECKOUT_SUCCESS;
         }
     }
 
