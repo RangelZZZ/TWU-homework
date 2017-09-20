@@ -14,4 +14,5 @@ public class Constant {
 
     public static final String ALERT_RETURN = "Input name of book to return: ";
     public static final String ALERT_RETURN_SUCCESS = "Thank you for returning the book.";
-    public static final String ALERT_RETURN_FAILURE = "That is not a valid book to return.";}
+    public static final String ALERT_RETURN_FAILURE = "That is not a valid book to return.";
+}
