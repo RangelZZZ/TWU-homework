@@ -1,7 +1,9 @@
 package comand_shell;
 
 import core.Book;
+import core.Movie;
 import service.BookImpService;
+import service.MovieImpService;
 
 import java.util.List;
 import java.util.Scanner;
@@ -9,7 +11,8 @@ import java.util.Scanner;
 import static util.Constant.*;
 
 public class App {
-    private BookImpService libraryImpService = new BookImpService();
+    private BookImpService bookImpService = new BookImpService();
+    private MovieImpService movieImpService = new MovieImpService();
 
     public static void main(String[] args) {
         run();
@@ -26,28 +29,39 @@ public class App {
     public void handleUserInput(int i) {
         if (i == 1) {
             System.out.println(new App().printBookList());
-            run();
         } else if (i == 2) {
             System.out.println(ALERT_CHECKOUT);
             Scanner sc = new Scanner(System.in);
             System.out.println(new App().checkOutBook(sc.nextLine()));
-            run();
         } else if (i == 3) {
             System.out.println(ALERT_RETURN);
             Scanner sc = new Scanner(System.in);
             System.out.println(new App().ReturnBook(sc.nextLine()));
-            run();
         } else if (i == 4) {
+            System.out.println(new App().printMovieList());
+        } else if (i == 5) {
             System.exit(0);
-        }else{
+        } else {
             System.out.println(ALERT_SELECT_VALID_OPTION);
-            run();
         }
+        run();
+    }
+
+    private String printMovieList() {
+        StringBuffer allMovies = new StringBuffer();
+        List<Movie> movieList = movieImpService.getMovieList();
+        movieList.stream().forEach(s -> allMovies.append(s.getName()).append(" ")
+                .append(s.getYear()).append(" ")
+                .append(s.getDirector()).append(" ")
+                .append(s.getRating()).append("time")
+                .append("\n"));
+
+        return allMovies.toString().trim();
     }
 
 
     private String ReturnBook(String bookName) {
-        List<Book> bookList = libraryImpService.returnBook(bookName);
+        List<Book> bookList = bookImpService.returnBook(bookName);
         if (bookList == null) {
             return ALERT_RETURN_FAILURE;
         } else {
@@ -56,7 +70,7 @@ public class App {
     }
 
     private String checkOutBook(String bookName) {
-        List<Book> bookList = libraryImpService.checkOutBook(bookName);
+        List<Book> bookList = bookImpService.checkOutBook(bookName);
         if (bookList == null) {
             return ALERT_CHECKOUT_FAILURE;
         } else {
@@ -66,7 +80,7 @@ public class App {
 
     public String printBookList() {
         StringBuffer allBooks = new StringBuffer();
-        List<Book> bookList = libraryImpService.getBookList();
+        List<Book> bookList = bookImpService.getBookList();
         bookList.stream().forEach(s -> allBooks.append(s.getBookName()).append(" ")
                 .append(s.getPublishTime()).append(" ")
                 .append(s.getAuthor()).append("\n"));

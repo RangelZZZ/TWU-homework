@@ -5,7 +5,8 @@ public class Constant {
     public static final String MAIN_MENU = "1. List Books\n"
             + "2. Checkout Book\n"
             + "3. Return Book\n"
-            + "4. Quit";
+            + "4. List movies\n"
+            + "5. Quit";
     public static final String ALERT_SELECT_VALID_OPTION = "Select a valid option!";
 
     public static final String ALERT_CHECKOUT = "Input name of book to checkout: ";

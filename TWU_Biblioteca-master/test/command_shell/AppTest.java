@@ -44,5 +44,15 @@ public class AppTest {
         assertEquals(expectedBookList, outContent.toString().trim());
     }
 
+    @Test
+    public void should_get_movieList_by_string_when_user_input_4() throws Exception {
+        String expectMovieList = "movie1 2001 director1 4time\n" +
+                "movie2 2002 director2 8time\n" +
+                "movie3 2003 director3 1time";
+        app.handleUserInput(4);
+
+        assertEquals(expectMovieList, outContent.toString().trim());
+    }
+
 
 }
