@@ -2,9 +2,11 @@ package service;
 
 
 import core.Book;
+import core.Movie;
+
 import java.util.List;
 
-public interface LibraryService {
+public interface BookService {
 
     List<Book> getBookList();
     List<Book> checkOutBook(String bookName);

@@ -3,10 +3,12 @@ package service;
 
 import core.Book;
 import core.BookList;
+import core.Movie;
+import core.MovieList;
 
 import java.util.List;
 
-public class LibraryImpService implements LibraryService {
+public class BookImpService implements BookService {
     private BookList bookList = new BookList();
 
     @Override

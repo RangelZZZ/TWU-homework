@@ -1,7 +1,7 @@
 package comand_shell;
 
 import core.Book;
-import service.LibraryImpService;
+import service.BookImpService;
 
 import java.util.List;
 import java.util.Scanner;
@@ -9,7 +9,7 @@ import java.util.Scanner;
 import static util.Constant.*;
 
 public class App {
-    private LibraryImpService libraryImpService = new LibraryImpService();
+    private BookImpService libraryImpService = new BookImpService();
 
     public static void main(String[] args) {
         run();
