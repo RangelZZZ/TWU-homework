@@ -30,18 +30,22 @@ public class App {
         if (i == 1) {
             System.out.println(new App().printBookList());
         } else if (i == 2) {
-            System.out.println(ALERT_CHECKOUT);
+            System.out.println(ALERT_CHECKOUT_BOOK);
             Scanner sc = new Scanner(System.in);
             System.out.println(new App().checkOutBook(sc.nextLine()));
         } else if (i == 3) {
-            System.out.println(ALERT_RETURN);
+            System.out.println(ALERT_RETURN_BOOK);
             Scanner sc = new Scanner(System.in);
             System.out.println(new App().ReturnBook(sc.nextLine()));
         } else if (i == 4) {
             System.out.println(new App().printMovieList());
-        } else if (i == 5) {
+        } else if (i == 6) {
             System.exit(0);
-        } else {
+        } else if(i == 5){
+            System.out.println(ALERT_CHECKOUT_MOVIE);
+            Scanner sc = new Scanner(System.in);
+            System.out.println(new App().checkOutMovie(sc.nextLine()));
+        }else{
             System.out.println(ALERT_SELECT_VALID_OPTION);
         }
         run();
@@ -63,18 +67,18 @@ public class App {
     private String ReturnBook(String bookName) {
         List<Book> bookList = bookImpService.returnBook(bookName);
         if (bookList == null) {
-            return ALERT_RETURN_FAILURE;
+            return ALERT_RETURN_BOOK_FAILURE;
         } else {
-            return ALERT_RETURN_SUCCESS;
+            return ALERT_RETURN_BOOK_SUCCESS;
         }
     }
 
     private String checkOutBook(String bookName) {
         List<Book> bookList = bookImpService.checkOutBook(bookName);
         if (bookList == null) {
-            return ALERT_CHECKOUT_FAILURE;
+            return ALERT_CHECKOUT_BOOK_FAILURE;
         } else {
-            return ALERT_CHECKOUT_SUCCESS;
+            return ALERT_CHECKOUT_BOOK_SUCCESS;
         }
     }
 
@@ -86,6 +90,15 @@ public class App {
                 .append(s.getAuthor()).append("\n"));
 
         return allBooks.toString().trim();
+    }
+
+    private String checkOutMovie(String movieName) {
+        List<Movie> movieList = movieImpService.checkoutMovie(movieName);
+        if (movieList == null) {
+            return ALERT_checkout_MOVIE_FAILURE;
+        } else {
+            return ALERT_checkout_MOVIE_SUCESS;
+        }
     }
 
     public static String welcome() {
