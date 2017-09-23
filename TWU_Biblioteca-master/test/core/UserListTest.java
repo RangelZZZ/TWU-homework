@@ -29,4 +29,19 @@ public class UserListTest {
         User user = userList.findUser("rangelzzz");
         assertNull(user);
     }
+
+
+    @Test
+    public void should_check_login_by_user_name_and_password_correctly() throws Exception {
+        User user = userList.checkLogin("rangel","12345678");
+
+        assertThat(user.getEmail(),is("18792561236@163.com"));
+        assertThat(user.getPhoneNumber(),is("18792561236"));
+
+    }
+    @Test
+    public void should_should_not_check_login_by_user_name_and_password_when_user_do_not_exist() throws Exception {
+        User user = userList.checkLogin("rangel","12345678900");
+        assertNull(user);
+    }
 }

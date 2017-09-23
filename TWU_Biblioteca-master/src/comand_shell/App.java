@@ -53,10 +53,26 @@ public class App {
             Scanner sc = new Scanner(System.in);
             System.out.println(new App().checkPersonalInformation());
 
+        }else if(i == 8){
+            System.out.println(ALTER_INPUT_USERNAME);
+            Scanner sc = new Scanner(System.in);
+            System.out.println(ALTER_INPUT_PASSWORD);
+            Scanner sc1 = new Scanner(System.in);
+
+            userLogin(sc.nextLine(),sc1.nextLine());
+
         } else {
             System.out.println(ALERT_SELECT_VALID_OPTION);
         }
         run();
+    }
+
+    private void userLogin(String userName, String password) {
+        if(userImpService.checkLogin(userName,password) == null){
+            System.out.println(LOGIN_FAILURE);
+        }else{
+            System.out.println(LOGIN_SUCCESS);
+        }
     }
 
     private StringBuffer checkPersonalInformation() {
@@ -66,7 +82,8 @@ public class App {
         userInformation.append("name: ").append(user.getName()).append("\n")
                 .append("address: ").append(user.getAddress()).append("\n")
                 .append("email: ").append(user.getEmail()).append("\n")
-                .append("phoneNumber: ").append(user.getPhoneNumber());
+                .append("phoneNumber: ").append(user.getPhoneNumber()).append("\n")
+                .append("password: ").append(user.getPassword());
         return userInformation;
     }
 
