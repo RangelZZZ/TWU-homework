@@ -2,14 +2,25 @@ package util;
 
 public class Constant {
     public static final String WELCOME = "Hello, welcome to Biblioteca system!";
-    public static final String MAIN_MENU = "1. List Books\n"
-            + "2. Checkout Book\n"
-            + "3. Return Book\n"
-            + "4. List movies\n"
-            + "5. Checkout Movie\n"
-            + "6. Quit\n"
-            + "7. Check personal information\n"
-            + "8. Login";
+
+    public static final String MAIN_MENU = "1. book manage\n"
+            + "2. movie manage\n"
+            + "3. personal information manage\n"
+            + "4. exit";
+
+    public static final String BOOK_MANAGE_MENU = "1. list books\n"
+            + "2. checkout book\n"
+            + "3. return book\n"
+            + "4. go to main menu";
+
+
+    public static final String MOVIE_MANAGE_MENU = "1. list movies\n"
+            + "2. checkout movie\n"
+            + "3. go to main menu";
+
+    public static final String PERSONAL_INFORMATION_MENU = "1. check personal information\n"
+            + "2. go to main menu";
+
     public static final String ALERT_SELECT_VALID_OPTION = "Select a valid option!";
 
     public static final String ALERT_CHECKOUT_BOOK = "Input name of book to checkout: ";
