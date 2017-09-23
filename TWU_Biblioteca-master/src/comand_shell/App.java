@@ -2,8 +2,11 @@ package comand_shell;
 
 import core.Book;
 import core.Movie;
+import core.User;
 import service.BookImpService;
 import service.MovieImpService;
+import service.UserImpService;
+import service.UserService;
 
 import java.util.List;
 import java.util.Scanner;
@@ -13,6 +16,7 @@ import static util.Constant.*;
 public class App {
     private BookImpService bookImpService = new BookImpService();
     private MovieImpService movieImpService = new MovieImpService();
+    private UserService userImpService = new UserImpService();
 
     public static void main(String[] args) {
         run();
@@ -41,14 +45,29 @@ public class App {
             System.out.println(new App().printMovieList());
         } else if (i == 6) {
             System.exit(0);
-        } else if(i == 5){
+        } else if (i == 5) {
             System.out.println(ALERT_CHECKOUT_MOVIE);
             Scanner sc = new Scanner(System.in);
             System.out.println(new App().checkOutMovie(sc.nextLine()));
-        }else{
+        } else if (i == 7) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println(new App().checkPersonalInformation());
+
+        } else {
             System.out.println(ALERT_SELECT_VALID_OPTION);
         }
         run();
+    }
+
+    private StringBuffer checkPersonalInformation() {
+        StringBuffer userInformation = new StringBuffer();
+        User user = userImpService.findUser("rangel");
+
+        userInformation.append("name: ").append(user.getName()).append("\n")
+                .append("address: ").append(user.getAddress()).append("\n")
+                .append("email: ").append(user.getEmail()).append("\n")
+                .append("phoneNumber: ").append(user.getPhoneNumber());
+        return userInformation;
     }
 
     private String printMovieList() {

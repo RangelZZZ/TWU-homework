@@ -7,7 +7,8 @@ public class Constant {
             + "3. Return Book\n"
             + "4. List movies\n"
             + "5. Checkout Movie\n"
-            + "6. Quit";
+            + "6. Quit\n"
+            + "7. check personal information";
     public static final String ALERT_SELECT_VALID_OPTION = "Select a valid option!";
 
     public static final String ALERT_CHECKOUT_BOOK = "Input name of book to checkout: ";
@@ -21,4 +22,6 @@ public class Constant {
     public static final String ALERT_CHECKOUT_MOVIE = "Input name of movie to checkout:";
     public static final String ALERT_checkout_MOVIE_SUCESS = "Thank you! Enjoy the movie!";
     public static final String ALERT_checkout_MOVIE_FAILURE = "That movie is not available.";
+
+    public static final String ALTER_CHECK_PERSONAL_INFORMATION = "check_personal_information";
 }
